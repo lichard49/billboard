@@ -1,6 +1,6 @@
 <?php
 
-$fileName = "./state.txt";
+$fileName = "./state/state.txt";
 
 if (isset($_GET["state"])) {
 
