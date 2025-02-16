@@ -1,0 +1,61 @@
+body {
+  display: flex;
+  height: 100vh;
+  font-family: Sans-Serif;
+}
+
+@media (orientation: portrait) {
+  body {
+    flex-direction: column;
+  }
+
+  .item {
+    margin: auto 0;
+    width: 100%;
+    max-height: 50%;
+  }
+
+  h1 {
+    font-size: 100vw;
+  }
+
+  button {
+    font-size: 10vw;
+  }
+}
+
+@media (orientation: landscape) {
+  body {
+    flex-direction: row;
+  }
+
+  .item {
+    margin: 0 auto;
+    height: 100%;
+    max-width: 50%;
+  }
+
+  h1 {
+    font-size: 100vh;
+  }
+
+  button {
+    font-size: 10vh;
+  }
+}
+
+.item {
+  aspect-ratio: 1 / 1;
+  text-align: center;
+}
+
+img, button {
+  display: block;
+  aspect-ratio: 1 / 1;
+  height: 80%;
+  margin: auto;
+}
+
+h1 {
+  margin: 0;
+}
