@@ -16,9 +16,25 @@
 
   <script>
     let counter = 0;
-    document.getElementById('update').addEventListener('click', () => {
-      fetch('server.php?state=' + counter);
-      counter++;
+
+    // initialize counter to current value on the server
+    fetch('server.php').then((response) => {
+      response.text().then((text) => {
+        const lines = text.trim().split('\n');
+        const lastLine = lines[lines.length - 1]
+        counter = parseInt(lastLine.split(': ')[1]);
+
+        // enable buttons after counter is initialized
+        document.getElementById('update').addEventListener('click', () => {
+          counter++;
+          fetch('server.php?state=' + counter);
+        });
+
+        document.getElementById('reset').addEventListener('click', () => {
+          counter = 0;
+          fetch('server.php?state=' + counter);
+        });
+      });
     });
   </script>
 </body>
