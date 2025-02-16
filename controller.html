@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Billboard Controller</title>
+</head>
+<body>
+  <button id="update">Update</button>
+
+  <script>
+    let counter = 0;
+    document.getElementById('update').addEventListener('click', () => {
+      fetch('server.php?state=' + counter);
+      counter++;
+    });
+  </script>
+</body>
+</html>
